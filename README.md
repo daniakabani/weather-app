@@ -10,6 +10,10 @@ A responsive, single-page application (SPA) for checking weather conditions usin
 - Responsive design that works on desktop and mobile devices
 - Dark mode support based on system preferences
 - Recent searches history
+- User profile management with editable information
+- Country code selection for phone numbers
+- Automatic display of weather for London, Paris, and current location on startup
+- Smart UI that hides the "Use My Location" button when local weather is already displayed
 
 ## Technologies Used
 
@@ -28,7 +32,7 @@ The project follows Atomic Design principles for component organization:
 - **atoms**: Basic building blocks (Button, Input)
 - **molecules**: Groups of atoms (SearchForm, LocationWeather)
 - **organisms**: Complex UI sections (WeatherCard, ForecastList, WeatherDetail)
-- **views**: Full pages (HomeView, WeatherDetailView)
+- **views**: Full pages (HomeView, WeatherDetailView, ProfileView)
 
 Other directories:
 - **api**: API service for OpenWeatherMap

@@ -39,6 +39,7 @@ defineExpose({
     </label>
 
     <input
+      ref="inputRef"
       :id="inputId"
       :type="type || 'text'"
       :value="modelValue"
