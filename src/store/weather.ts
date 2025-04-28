@@ -67,7 +67,6 @@ export const useWeatherStore = defineStore('weather', () => {
         // Check if we already have forecast data for this city
         if (locationWeathers.value[weatherData.name]?.forecast) {
           forecast.value = locationWeathers.value[weatherData.name].forecast
-          console.log(`Using cached forecast data for ${weatherData.name}`)
         } else {
           const forecastData = await getForecastByCity(weatherData.name)
           forecast.value = forecastData
@@ -142,7 +141,6 @@ export const useWeatherStore = defineStore('weather', () => {
       const cacheTime = cachedData.timestamp || 0
       // Use cache if less than 30 minutes old
       if (Date.now() - cacheTime < 30 * 60 * 1000) {
-        console.log(`Using cached weather data for ${city}`)
         return cachedData
       }
     }
@@ -150,7 +148,6 @@ export const useWeatherStore = defineStore('weather', () => {
     try {
       // Check if we already have data for this city
       if (locationWeathers.value[city]) {
-        console.log(`Using cached weather data for ${city}`)
         return locationWeathers.value[city]
       }
 
@@ -290,9 +287,7 @@ export const useWeatherStore = defineStore('weather', () => {
 
   // Add a function to remove a location from locationWeathers
   function removeLocation(city: string) {
-    console.log(`Removing location ${city} from store`)
     if (locationWeathers.value[city]) {
-      console.log(locationWeathers.value)
       delete locationWeathers.value[city]
 
       // Also remove from recent searches if present
@@ -341,6 +336,7 @@ export const useWeatherStore = defineStore('weather', () => {
     fetchWeatherDataOnly,
     fetchWeatherForLocation,
     fetchInitialWeatherData,
+    fetchWeatherForCurrentLocation,
     removeLocation,
     addLocation
   }
